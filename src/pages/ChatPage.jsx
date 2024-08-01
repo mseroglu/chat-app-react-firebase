@@ -68,8 +68,9 @@ const ChatPage = ({ room, setRoom }) => {
          </header>
 
          <main>
-            {messages.length 
-            ? <p>"Henüz hiç mesaj gönderilmedi. İlk mesajı siz gönderin"</p>
+            
+            {!messages.length 
+            ? <div className="no_msg"><p >"Henüz hiç mesaj gönderilmedi. İlk mesajı siz gönderin"</p></div>
               : messages?.map((data, i) => <Message key={i} data={data} />)
             }
          </main>
