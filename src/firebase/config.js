@@ -2,10 +2,11 @@ import { initializeApp } from "firebase/app";
 import { getAuth, GoogleAuthProvider } from "firebase/auth";
 import { getFirestore } from "firebase/firestore"
 
+console.log(import.meta.env.VITE_API_KEY)
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDcQaeFkbO59jpwe07FzQwXjHGtWxrjjuE",
-  authDomain: "react-firebase-34bc1.firebaseapp.com",
+  apiKey: import.meta.env.VITE_API_KEY,
+  authDomain: import.meta.env.VITE_API_KEY,
   projectId: "react-firebase-34bc1",
   storageBucket: "react-firebase-34bc1.appspot.com",
   messagingSenderId: "304544753912",
