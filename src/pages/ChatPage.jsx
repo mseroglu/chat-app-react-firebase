@@ -55,7 +55,7 @@ const ChatPage = ({ room, setRoom }) => {
          return () => unsub()
       })
 
-   }, [messages])
+   }, [])
 
 
    return (
