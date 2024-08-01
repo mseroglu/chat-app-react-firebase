@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Message from "../components/Message";
 
 const ChatPage = ({ room, setRoom }) => {
-   const [messages, setMessages] = useState()
+   const [messages, setMessages] = useState([])
 
 
    // mesaj yollama
