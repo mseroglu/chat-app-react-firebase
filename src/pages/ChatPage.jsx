@@ -61,7 +61,7 @@ const ChatPage = ({ room, setRoom }) => {
 
    // yeni mesaj yollanınca kaydırma yapmak
    useEffect(()=>{
-      lastMsg.current?.scrollIntoView()
+      lastMsg.current?.scrollIntoView({ behavior: "smooth"})      // behavior yumuşak geçiş sağlıyor
    }, [messages])
 
    return (
