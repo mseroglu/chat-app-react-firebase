@@ -1,6 +1,6 @@
 import { addDoc, collection, serverTimestamp, onSnapshot, query, orderBy, where } from "firebase/firestore";
 import { db, auth } from "../firebase/config";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Message from "../components/Message";
 
 const ChatPage = ({ room, setRoom }) => {
@@ -57,6 +57,12 @@ const ChatPage = ({ room, setRoom }) => {
 
    }, [])
 
+   const lastMsg = useRef()
+
+   // yeni mesaj yollanınca kaydırma yapmak
+   useEffect(()=>{
+      lastMsg.current?.scrollIntoView()
+   }, [messages])
 
    return (
       <div className="chat-page">
@@ -73,6 +79,7 @@ const ChatPage = ({ room, setRoom }) => {
             ? <div className="no_msg"><p >"Henüz hiç mesaj gönderilmedi. İlk mesajı siz gönderin"</p></div>
               : messages?.map((data, i) => <Message key={i} data={data} />)
             }
+            <div ref={lastMsg} ></div>
          </main>
 
          <form onSubmit={sendMessage}>
